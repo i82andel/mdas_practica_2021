@@ -10,7 +10,7 @@ public interface ObtenerLocalidadesDisponibles {
 		
 		for(Localidad localidadAuxiliar : estadio.getLocalidadesEstadio()) {
 			
-			
+		//Hola
 			
 		}
 		
