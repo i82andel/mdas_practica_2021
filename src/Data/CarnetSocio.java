@@ -1,6 +1,8 @@
 package Data;
 
-public class CarnetSocio {
+import java.io.Serializable;
+
+public class CarnetSocio implements Serializable{
 
 	String tipoCarnet;
 

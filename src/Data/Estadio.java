@@ -1,8 +1,9 @@
 package Data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Estadio {
+public class Estadio implements Serializable{
 
 	String nombre;
 	int idEstadio;

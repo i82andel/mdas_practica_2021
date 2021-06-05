@@ -1,15 +1,16 @@
 package Data;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 
-public class Socio extends Usuario {
+public class Socio extends Usuario{
 
-	String carnetSocio;
+	CarnetSocio carnetSocio;
 	LocalDate fechaInscripcion;
 	
 	
-	public Socio(Email email, String nombre, LocalDate fechaNacimiento, String carnetSocio, LocalDate fechaInscripcion) {
+	public Socio(Email email, String nombre, LocalDate fechaNacimiento, CarnetSocio carnetSocio, LocalDate fechaInscripcion) {
 		
 		super(email, nombre, fechaNacimiento);
 		this.carnetSocio = carnetSocio;
@@ -24,12 +25,12 @@ public class Socio extends Usuario {
 		
 	}
 
-	public String getCarnetSocio() {
+	public CarnetSocio getCarnetSocio() {
 		return carnetSocio;
 	}
 
 
-	public void setCarnetSocio(String carnetSocio) {
+	public void setCarnetSocio(CarnetSocio carnetSocio) {
 		this.carnetSocio = carnetSocio;
 	}
 

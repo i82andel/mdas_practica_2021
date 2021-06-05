@@ -1,8 +1,9 @@
 package Data;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Entrada {
+public class Entrada implements Serializable{
 
 	LocalDate fechaEvento;
 	Usuario datosPropietarioEntrada;

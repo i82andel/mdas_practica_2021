@@ -1,9 +1,10 @@
 package Data;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 
-public class Usuario {
+public class Usuario implements Serializable{
 
 	Email email;
 	String nombre;

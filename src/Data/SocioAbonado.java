@@ -7,7 +7,7 @@ public class SocioAbonado extends Socio {
 	Abono abono;
 
 	
-	public SocioAbonado(Email email, String nombre, LocalDate fechaNacimiento, String carnetSocio,
+	public SocioAbonado(Email email, String nombre, LocalDate fechaNacimiento, CarnetSocio carnetSocio,
 			LocalDate fechaInscripcion, Abono abono) {
 		super(email, nombre, fechaNacimiento, carnetSocio, fechaInscripcion);
 		this.abono = abono;

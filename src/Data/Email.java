@@ -1,8 +1,9 @@
 package Data;
 
+import java.io.Serializable;
 import java.util.regex.Pattern;
 
-public class Email {
+public class Email implements Serializable{
 
 	String email;
 

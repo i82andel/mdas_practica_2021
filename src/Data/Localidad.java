@@ -1,6 +1,8 @@
 package Data;
 
-public class Localidad {
+import java.io.Serializable;
+
+public class Localidad implements Serializable{
 
 	int numero;
 	String zona;

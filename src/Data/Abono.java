@@ -1,8 +1,9 @@
 package Data;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Abono {
+public class Abono implements Serializable{
 
 	Localidad localidad;
 	LocalDate fechaCaducidad;
