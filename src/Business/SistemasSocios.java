@@ -130,6 +130,7 @@ public class SistemasSocios {
 		
 		Solicitud nuevaSolicitud = new Solicitud( socioSolicitante,  razon);
 		gestor.getSolicitudes().insertar(nuevaSolicitud);
+		
 	}
 	
 	

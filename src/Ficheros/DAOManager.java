@@ -1,5 +1,8 @@
 package Ficheros;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 public class DAOManager {
 
 	private DMUsuarioDAO usuarios = null;
@@ -67,6 +70,20 @@ public class DAOManager {
 			solicitudes = new DMSolicitudDAO();
         }
 		return solicitudes;
+	}
+	
+	public void guardarFicheros() throws IOException, IOException {
+		
+		usuarios.guardarFichero();
+		socios.guardarFichero();
+		abonados.guardarFichero();
+		compromisarios.guardarFichero();
+		entradas.guardarFichero();
+		estadios.guardarFichero();
+		juntas.guardarFichero();
+		solicitudes.guardarFichero();
+		
+		
 	}
 	
 }
