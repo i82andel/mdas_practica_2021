@@ -1,5 +1,8 @@
 package DAOS;
 
-public interface SocioCompromisarioDAO extends DAO{
+import Data.Email;
+import Data.SocioCompromisario;
+
+public interface SocioCompromisarioDAO extends DAO<SocioCompromisario, Email>{
 
 }
