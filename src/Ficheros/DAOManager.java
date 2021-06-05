@@ -8,6 +8,7 @@ public class DAOManager {
 	private DMSocioCompromisarioDAO compromisarios = null;
 	private DMEntradaDAO entradas = null;
 	private DMEstadioDAO estadios = null;
+	private DMJuntaDAO juntas = null;
 	
 	public DAOManager() {}
 
