@@ -1,5 +1,8 @@
 package DAOS;
 
-public interface UsuarioDAO extends DAO{
+import Data.Email;
+import Data.Usuario;
+
+public interface UsuarioDAO extends DAO<Usuario, Email>{
 
 }
