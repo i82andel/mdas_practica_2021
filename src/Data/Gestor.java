@@ -117,8 +117,9 @@ public class Gestor {
 		escribirEstadios.writeObject(estadios);
 		escribirEstadios.close();
 		
-		
-		
 	}
+	
+	
+	
 	
 }
