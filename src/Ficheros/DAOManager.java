@@ -9,6 +9,7 @@ public class DAOManager {
 	private DMEntradaDAO entradas = null;
 	private DMEstadioDAO estadios = null;
 	private DMJuntaDAO juntas = null;
+	private DMSolicitudDAO solicitudes = null;
 	
 	public DAOManager() {}
 
@@ -61,5 +62,11 @@ public class DAOManager {
 		return juntas;
 	}
 	
+	public DMSolicitudDAO getSolicitudes() {
+		if(solicitudes == null){
+			solicitudes = new DMSolicitudDAO();
+        }
+		return solicitudes;
+	}
 	
 }
