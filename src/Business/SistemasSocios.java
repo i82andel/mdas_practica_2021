@@ -126,9 +126,10 @@ public class SistemasSocios {
 		
 	}
 	
-	public void añadirSolicitud(Socio socio, String razon) {
+	public void añadirSolicitud(Socio socioSolicitante, String razon) {
 		
-		
+		Solicitud nuevaSolicitud = new Solicitud( socioSolicitante,  razon);
+		gestor.getSolicitudes().insertar(nuevaSolicitud);
 	}
 	
 	
