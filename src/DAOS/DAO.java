@@ -1,7 +1,11 @@
 package DAOS;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
+
+import Data.Junta;
 
 public interface DAO<T, K> {
 	
@@ -18,4 +22,6 @@ public interface DAO<T, K> {
     void cargarFichero() throws FileNotFoundException, IOException, ClassNotFoundException;
     
     void guardarFichero() throws FileNotFoundException, IOException;
+
+	//Junta obtener(LocalDate fecha, LocalTime hora);
 }

@@ -2,30 +2,29 @@ package UserInterface;
 
 import java.util.Scanner;
 import java.util.InputMismatchException;
+
 public class menuPrincipal {
 
 	public static void main(String[] args) {
 		
 		Scanner sn = new Scanner(System.in);
 		
-		boolean salir = false;
 		int opcion;
 		
-		while(!salir) {
-			
-			System.out.println("1. Crear nuevo socio.");
-			System.out.println("2. Cancelar asocio.");
-			System.out.println("3. Obtener informacion de un socio.");
-			System.out.println("4. Convocar una junta.");
-			System.out.println("5. Crear carnet socio.");
-			System.out.println("6. Convertir Socio compromisario.");
-			System.out.println("7. Salir");
+		while(true) {
+			System.out.println("====================== M E N U ======================");
+			System.out.println("Introduce el numero de la opcion que desee realizar: ");
+			System.out.println("  1. Crear nuevo socio.");
+			System.out.println("  2. Cancelar asocio.");
+			System.out.println("  3. Obtener informacion de un socio.");
+			System.out.println("  4. Convocar una junta.");
+			System.out.println("  5. Crear carnet socio.");
+			System.out.println("  6. Convertir Socio compromisario.");
+			System.out.println("____________________________________________________");
+			System.out.println("  7. EXIT");
+			System.out.println("====================================================");
 			
 			try {
-			
-		
-			
-				System.out.println("Introduce el numero de la opcion que desee realizar: ");
 				opcion = sn.nextInt();
 				
 				switch(opcion) {
@@ -54,18 +53,17 @@ public class menuPrincipal {
 						break;
 						
 					case 7:
-						salir = true;
+						System.out.println("Fin del Menu");
+						System.exit(0);
 						break;
+						
+					default:
+						System.out.println("La opcion seleccionada no existe. Debe ser entre 1 y 7.");
 				}
 			}catch(InputMismatchException e) {
 				System.out.println("Debes introducir un numero.");
 				sn.next();
 			}
-			
 		}
-		
-		System.out.println("Fin del menu.");
-
 	}
-
 }
