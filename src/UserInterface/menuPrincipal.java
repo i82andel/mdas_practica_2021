@@ -52,24 +52,44 @@ public class menuPrincipal {
 							switch(opcionMenuSocios) {
 							
 							case 1:
+								System.out.println("==================== CREAR SOCIO ====================");
+			
 								break;
 								
 							case 2:
+								System.out.println("================== CANCELAR SOCIO ===================");
+								
+								
 								break;
 								
 							case 3:
+								System.out.println("================ OBTENER INFORMACION ================");
+								
+								
 								break;
 								
 							case 4:
+								System.out.println("=================== RENOVAR ABONO ===================");
+								
+								
 								break;
 								
 							case 5:
+								System.out.println("================== CANCELAR ABONO ===================");
+								
+								
 								break;
 								
 							case 6:
+								System.out.println("==================== CREAR CARNET ===================");
+							
+								
 								break;
 								
 							case 7:
+								System.out.println("=========== SOLICITUD SOCIO COMPROMISARIO ===========");
+
+								
 								break;
 								
 							case 8:
