@@ -70,7 +70,17 @@ public class SistemasSocios {
 		}
 		return socioEncontrado;
 	}
-	
+
+	public Socio getSocioAbonadoInfo(Email emailSocio) throws Exception {
+		
+		SocioAbonado socioEncontrado = gestor.getAbonados().obtener(emailSocio);
+		if(socioEncontrado == null) {
+			
+			throw new Exception();
+			
+		}
+		return socioEncontrado;
+	}
 	
 	public void convocarJunta(SocioCompromisario socioConvocante, ArrayList<String> temasTratarJunta, 
 			LocalDate fechaJunta, LocalTime horaJunta) {
