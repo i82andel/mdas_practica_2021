@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class CarnetSocio implements Serializable{
 
-	String tipoCarnet;
+	private String tipoCarnet;
 
 	
 	public CarnetSocio(Socio socio) {

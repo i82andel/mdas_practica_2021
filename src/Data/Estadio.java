@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 public class Estadio implements Serializable{
 
-	String nombre;
-	int idEstadio;
-	int aforo;
-	ArrayList<Localidad> localidadesEstadio;
+	private String nombre;
+	private int idEstadio;
+	private int aforo;
+	private ArrayList<Localidad> localidadesEstadio;
 	
 	
 	public Estadio(String nombre, int idEstadio, int aforo, ArrayList<Localidad> localidadesEstadio) {

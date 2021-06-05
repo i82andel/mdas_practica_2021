@@ -19,7 +19,7 @@ public interface ComprarEntrada {
 	
 	public static void comprarEntrada(LocalDate fechaEnvento, Usuario usuarioComprador, Localidad localidadDeseada) {
 		
-		//comprobar localidad no ocupada
+		localidadDeseada.isOcupada();
 		localidadDeseada.setOcupada(true);
 		Entrada nuevaEntrada = new Entrada(fechaEvento,usuarioComparador,localidadDeseada);
 		//Guardar entrada en sistema + fichero

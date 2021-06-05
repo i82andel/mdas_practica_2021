@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class Email implements Serializable{
 
-	String email;
+	private String email;
 
 	public Email(String email) {
 		

@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class SocioAbonado extends Socio {
 
-	Abono abono;
+	private Abono abono;
 
 	
 	public SocioAbonado(Email email, String nombre, LocalDate fechaNacimiento, CarnetSocio carnetSocio,

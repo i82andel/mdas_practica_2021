@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class SocioCompromisario extends Socio{
 
-	boolean solicitudAceptada;
+	private boolean solicitudAceptada;
 	
 	public SocioCompromisario(Email email, String nombre, LocalDate fechaNacimiento, LocalDate fechaInscripcion) {
 		super(email, nombre, fechaNacimiento, fechaInscripcion);

@@ -6,8 +6,8 @@ import java.time.Period;
 
 public class Socio extends Usuario{
 
-	CarnetSocio carnetSocio;
-	LocalDate fechaInscripcion;
+	private CarnetSocio carnetSocio;
+	private LocalDate fechaInscripcion;
 	
 	
 	public Socio(Email email, String nombre, LocalDate fechaNacimiento, CarnetSocio carnetSocio, LocalDate fechaInscripcion) {

@@ -6,9 +6,9 @@ import java.time.Period;
 
 public class Usuario implements Serializable{
 
-	Email email;
-	String nombre;
-	LocalDate fechaNacimiento;
+	private Email email;
+	private String nombre;
+	private LocalDate fechaNacimiento;
 		
 	
 	public Usuario(Email email, String nombre, LocalDate fechaNacimiento) {

@@ -5,9 +5,9 @@ import java.time.LocalDate;
 
 public class Entrada implements Serializable{
 
-	LocalDate fechaEvento;
-	Usuario datosPropietarioEntrada;
-	Localidad localidadAsignada;
+	private LocalDate fechaEvento;
+	private Usuario datosPropietarioEntrada;
+	private Localidad localidadAsignada;
 	
 	
 	public Entrada(LocalDate fechaEvento, Usuario datosPropietarioEntrada, Localidad localidadAsignada) {

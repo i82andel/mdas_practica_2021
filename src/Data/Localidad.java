@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 public class Localidad implements Serializable{
 
-	int numero;
-	String zona;
-	int idEstadio;
-	boolean ocupada;
+	private int numero;
+	private String zona;
+	private int idEstadio;
+	private boolean ocupada;
 	
 	public Localidad(int numero, String zona, int idEstadio, boolean ocupada) {
 		this.numero = numero;
