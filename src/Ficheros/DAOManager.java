@@ -12,26 +12,44 @@ public class DAOManager {
 	public DAOManager() {}
 
 	public DMUsuarioDAO getUsuarios() {
+		if(usuarios == null){
+            usuarios = new DMUsuarioDAO();
+        }
 		return usuarios;
 	}
 
 	public DMSocioDAO getSocios() {
+		if(socios == null){
+			socios = new DMSocioDAO();
+        }
 		return socios;
 	}
 
 	public DMSocioAbonadoDAO getAbonados() {
+		if(abonados == null){
+			abonados = new DMSocioAbonadoDAO();
+        }
 		return abonados;
 	}
 
 	public DMSocioCompromisarioDAO getCompromisarios() {
+		if(compromisarios == null){
+			compromisarios = new DMSocioCompromisarioDAO();
+        }
 		return compromisarios;
 	}
 
 	public DMEntradaDAO getEntradas() {
+		if(entradas == null){
+			entradas = new DMEntradaDAO();
+        }
 		return entradas;
 	}
 
 	public DMEstadioDAO getEstadios() {
+		if(estadios == null){
+			estadios = new DMEstadioDAO();
+        }
 		return estadios;
 	}
 	

@@ -17,6 +17,25 @@ import Data.Usuario;
 public class DMUsuarioDAO implements UsuarioDAO {
 	
 	ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+	
+	
+	public DMUsuarioDAO() {
+		
+		try {
+			this.cargarFichero();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
 	@Override
 	public void insertar(Usuario j) {
 		// TODO Auto-generated method stub

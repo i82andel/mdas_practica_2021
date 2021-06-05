@@ -16,6 +16,24 @@ public class DMEntradaDAO implements EntradaDAO{
 
 	ArrayList<Entrada> entradas = new ArrayList<Entrada>();
 	
+	
+
+	public DMEntradaDAO() {
+		
+		try {
+			this.cargarFichero();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 
 	@Override
 	public void insertar(Entrada j) {

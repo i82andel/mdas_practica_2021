@@ -16,6 +16,25 @@ import Data.SocioCompromisario;
 public class DMSocioCompromisarioDAO implements SocioCompromisarioDAO{
 
 	ArrayList<SocioCompromisario> compromisarios = new ArrayList<SocioCompromisario>();
+	
+	public DMSocioCompromisarioDAO() {
+		
+		try {
+			this.cargarFichero();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
 	@Override
 	public void insertar(SocioCompromisario j) {
 		compromisarios.add(j);

@@ -6,7 +6,7 @@ import java.time.Period;
 
 public class Socio extends Usuario{
 
-	private CarnetSocio carnetSocio;
+	private CarnetSocio carnetSocio = null;
 	private LocalDate fechaInscripcion;
 	
 	

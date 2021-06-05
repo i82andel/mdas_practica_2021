@@ -7,8 +7,9 @@ public class CarnetSocio implements Serializable{
 	private String tipoCarnet;
 
 	
-	public CarnetSocio(Socio socio) {
-		this.tipoCarnet = calcularTipoCarnet(socio);
+	public CarnetSocio(String tipoCarnet) {
+		this.tipoCarnet = tipoCarnet;
+		//throw exception
 	}
 
 	public String getTipoCarnet() {
@@ -19,27 +20,5 @@ public class CarnetSocio implements Serializable{
 		this.tipoCarnet = tipoCarnet;
 	}
 	
-	public String calcularTipoCarnet(Socio socio) {
-		
-		
-		if(socio.getAntiguedadSocio()>= 25){
-			
-			return "plata";
-			
-		}else if(socio.getEdad() < 18) {
-			
-			return "infantil";
-			
-		}else if(socio.getEdad() >= 18 && socio.getEdad() < 65) {
-			
-			return "adulto";
-			
-		}else{
-			
-			return "oro";
-			
-		}
-		
-	}
 	
 }

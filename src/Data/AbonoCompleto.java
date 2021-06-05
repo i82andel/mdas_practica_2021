@@ -8,8 +8,8 @@ public class AbonoCompleto extends Abono{
 
 	private static float TARIFA_COMPLETO = (float)15.00;
 	
-	public AbonoCompleto(Localidad localidad, LocalDate fechaCaducidad, String deporte) {
-		super(localidad, fechaCaducidad, deporte);
+	public AbonoCompleto(Localidad localidad, String deporte) {
+		super(localidad, deporte);
 	}
 	
 	@Override

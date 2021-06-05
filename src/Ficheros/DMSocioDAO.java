@@ -18,6 +18,24 @@ public class DMSocioDAO  implements SocioDAO{
 
 	ArrayList<Socio> socios = new ArrayList<Socio>();
 	
+	public DMSocioDAO() {
+		
+		try {
+			this.cargarFichero();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
 	@Override
 	public void insertar(Socio j) {
 		socios.add(j);

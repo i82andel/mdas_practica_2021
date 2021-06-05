@@ -16,6 +16,23 @@ public class DMEstadioDAO implements EstadioDAO{
 
 	ArrayList<Estadio> estadios = new ArrayList<Estadio>();
 
+	public DMEstadioDAO() {
+		
+		try {
+			this.cargarFichero();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
 	@Override
 	public void insertar(Estadio j) {
 		estadios.add(j);

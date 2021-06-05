@@ -8,13 +8,12 @@ public class Abono implements Serializable{
 
 	private Localidad localidad;
 	private LocalDate fechaCaducidad;
-	private Socio socioPropietario;
 	private String deporte;
 	
 	
-	public Abono(Localidad localidad, LocalDate fechaCaducidad, String deporte) {
+	public Abono(Localidad localidad, String deporte) {
 		this.localidad = localidad;
-		this.fechaCaducidad = fechaCaducidad;
+		this.setFechaCaducidad();
 		this.deporte = deporte;
 	}
 
@@ -30,8 +29,19 @@ public class Abono implements Serializable{
 		return fechaCaducidad;
 	}
 
-	public void setFechaCaducidad(LocalDate fechaCaducidad) {
+	public void setFechaCaducidad() {
+		LocalDate fechaActual = LocalDate.now();
+		LocalDate fechaCaducidad = fechaActual.plusYears(1);
 		this.fechaCaducidad = fechaCaducidad;
+	}
+	
+	public void renovarAbono() {
+		LocalDate fechaActual = LocalDate.now();
+		if(fechaCaducidad.isAfter(fechaActual)) {
+			fechaCaducidad = fechaCaducidad.plusYears(1);			
+		}else {
+			setFechaCaducidad();
+		}
 	}
 	
 	public float getPrecio() {

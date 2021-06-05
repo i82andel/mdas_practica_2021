@@ -17,6 +17,23 @@ public class DMSocioAbonadoDAO implements SocioAbonadoDAO{
 
 	ArrayList<SocioAbonado> abonados = new ArrayList<SocioAbonado>();
 	
+	public DMSocioAbonadoDAO() {
+		
+		try {
+			this.cargarFichero();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
 	@Override
 	public void insertar(SocioAbonado j) {
 		abonados.add(j);
