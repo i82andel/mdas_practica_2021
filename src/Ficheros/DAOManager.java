@@ -54,6 +54,12 @@ public class DAOManager {
 		return estadios;
 	}
 	
+	public DMJuntaDAO getJuntas() {
+		if(juntas == null){
+			juntas = new DMJuntaDAO();
+        }
+		return juntas;
+	}
 	
 	
 }

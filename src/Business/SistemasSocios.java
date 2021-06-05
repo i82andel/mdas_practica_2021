@@ -5,41 +5,78 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 import Data.*;
+import Ficheros.DAOManager;
 
 public class SistemasSocios {
 
-	public void asociarseClub(Usuario usuarioInscrito) {
+	DAOManager gestor = new DAOManager();
+	
+	public void asociarseClub(Usuario usuarioInscrito) throws Exception {
 		
-		//comprobar que no exista.
-		LocalDate fechaActualdeInscripcion = LocalDate.now();
-		Socio nuevoSocio = new Socio(fechaActualdeInscripcion);
-		//meter socio en el array
+		Socio nuevoSocio = setDatosSocio(usuarioInscrito);
+		if(!existeSocioSistema(nuevoSocio)) {
+			
+			gestor.getSocios().insertar(nuevoSocio);
+			
+		}else {
+			
+			throw new Exception();
+		}
+		
+	}
+	
+	public Socio setDatosSocio(Usuario usuario) {
+		
+
+		Email emailSocio = new Email(usuario.getEmail());
+		String nombreSocio = usuario.getNombre();
+		LocalDate fechaNacimiento  = usuario.getFechaNacimiento();
+		LocalDate fechaInscripcion = LocalDate.now();
+		
+		Socio nuevoSocioAbonado = new Socio(emailSocio,  nombreSocio,  fechaNacimiento, fechaInscripcion);
+		return nuevoSocioAbonado;
+		
+	}
+	
+	public boolean existeSocioSistema(Socio socio) {
+		
+		boolean encontrado = false;
+		String emailString = socio.getEmail();
+		Email emailSocioBuscado = new Email(emailString);
+		if(gestor.getSocios().obtener(emailSocioBuscado) == null) {
+			
+			encontrado = false;
+		}else {
+			
+			encontrado = true;
+		}
+		
+		return encontrado;
 	}
 	
 	public void cancelarAsocio(Socio socioDeBaja) {
 		
-		//borrar del array de socios
-		//
+		gestor.getSocios().eliminar(socioDeBaja);
 		
 	}
 	
-	public Socio getSocioInfo(Email emailSocio) {
+	public Socio getSocioInfo(Email emailSocio) throws Exception {
 		
-		//buscar por email en 
+		Socio socioEncontrado = gestor.getSocios().obtener(emailSocio);
+		if(socioEncontrado == null) {
+			
+			throw new Exception();
+			
+		}
 		return socioEncontrado;
 	}
 	
-	public boolean validarDatos(Usuario usuarioNuevo){
-		
-		//buscar si el usuario existe 
-		
-	}
 	
 	public void convocarJunta(SocioCompromisario socioConvocante, ArrayList<String> temasTratarJunta, 
 			LocalDate fechaJunta, LocalTime horaJunta) {
 		
 		Junta nuevaJunta = new Junta(socioConvocante, temasTratarJunta, fechaJunta, horaJunta);
-		//guardar nueva junta en el array
+		gestor.getJuntas().insertar(nuevaJunta);
 		
 		
 	}
@@ -77,11 +114,6 @@ public class SistemasSocios {
 		
 	}
 	
-	public void añadirSolicitud(Socio socio, String razon) {
-		
-		
-	}
-	
 	public boolean validarAntiguedad(Socio socio) {
 		
 		int antiguedadRequerida = 25;
@@ -94,7 +126,10 @@ public class SistemasSocios {
 		
 	}
 	
-	
+	public void añadirSolicitud(Socio socio, String razon) {
+		
+		
+	}
 	
 	
 }
