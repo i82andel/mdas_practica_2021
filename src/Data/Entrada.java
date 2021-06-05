@@ -17,31 +17,25 @@ public class Entrada implements Serializable{
 		this.localidadAsignada = localidadAsignada;
 	}
 
-
 	public LocalDate getFechaEvento() {
 		return fechaEvento;
 	}
-
 
 	public void setFechaEvento(LocalDate fechaEvento) {
 		this.fechaEvento = fechaEvento;
 	}
 
-
 	public Usuario getDatosPropietarioEntrada() {
 		return datosPropietarioEntrada;
 	}
-
 
 	public void setDatosPropietarioEntrada(Usuario datosPropietarioEntrada) {
 		this.datosPropietarioEntrada = datosPropietarioEntrada;
 	}
 
-
 	public Localidad getLocalidadAsignada() {
 		return localidadAsignada;
 	}
-
 
 	public void setLocalidadAsignada(Localidad localidadAsignada) {
 		this.localidadAsignada = localidadAsignada;
