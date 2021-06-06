@@ -71,9 +71,9 @@ public class DMUsuarioDAO implements UsuarioDAO {
 	@Override
 	public Usuario obtener(Email email) {
 		
-		for(int i = 0; i < usuarios.size(); i++) {
-			if(usuarios.get(i).getEmail() == email.getEmail()) {
-				return usuarios.get(i);
+		for(Usuario UsuarioAuxiliar : usuarios) {
+			if(UsuarioAuxiliar.getEmail().equals(email.getEmail())) {
+				return UsuarioAuxiliar;
 			}
 		}
 		
