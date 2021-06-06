@@ -7,17 +7,9 @@ public class Email implements Serializable{
 
 	private String email;
 
-	public Email(String email) {
-		
-		if(!emailIsValid(email)) {
-			
-			this.email = null;
-			
-		}else {
-			
-			this.email = email;
-		
-		}
+	public Email(String email) throws Exception {
+		this.comprobarValidezEmail(email);
+		this.email = email;
 	}
 
 	public String getEmail() {
@@ -28,7 +20,7 @@ public class Email implements Serializable{
 		this.email = email;
 	}
 	
-	public static boolean emailIsValid(String email)
+	public void comprobarValidezEmail(String email) throws Exception
     {
 		
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
@@ -36,10 +28,10 @@ public class Email implements Serializable{
                             "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
                             "A-Z]{2,7}$";
                               
-        Pattern pat = Pattern.compile(emailRegex);
+        Pattern patronEmail = Pattern.compile(emailRegex);
         if (email == null)
-            return false;
-        return pat.matcher(email).matches();
+            throw new Exception();
+         if(!patronEmail.matcher(email).matches())throw new Exception();
         
     }
 	

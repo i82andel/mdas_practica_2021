@@ -10,6 +10,9 @@ public class Abono implements Serializable{
 	private LocalDate fechaCaducidad;
 	private String deporte;
 	
+	private static float TARIFA_COMPLETO = (float)15.00;
+	private static float TARIFA_LIGA = (float)45.00;
+	
 	
 	public Abono(Localidad localidad, String deporte) {
 		this.localidad = localidad;

@@ -25,7 +25,7 @@ public class SistemasSocios {
 		
 	}
 	
-	public Socio setDatosSocio(Usuario usuario) {
+	public Socio setDatosSocio(Usuario usuario) throws Exception {
 		
 
 		Email emailSocio = new Email(usuario.getEmail());
@@ -38,7 +38,7 @@ public class SistemasSocios {
 		
 	}
 	
-	public boolean existeSocioSistema(Socio socio, DAOManager gestor) {
+	public boolean existeSocioSistema(Socio socio, DAOManager gestor) throws Exception {
 		
 		boolean encontrado = false;
 		String emailString = socio.getEmail();

@@ -28,7 +28,7 @@ public interface ComprarEntrada {
 		return usuarioEncontrado;
 	}
 	
-	public static boolean existeUsuarioSistema(Usuario usuario, DAOManager gestor) {
+	public static boolean existeUsuarioSistema(Usuario usuario, DAOManager gestor) throws Exception {
 		
 		boolean encontrado = false;
 		String emailString = usuario.getEmail();

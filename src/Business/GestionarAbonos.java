@@ -9,7 +9,7 @@ public interface GestionarAbonos {
 	
 	DAOManager gestor = new DAOManager();
 
-	public static boolean comprobarSocioNoAbonado(Socio socio) {
+	public static boolean comprobarSocioNoAbonado(Socio socio) throws Exception {
 		
 		boolean encontrado = false;
 		String emailString = socio.getEmail();
@@ -34,7 +34,7 @@ public interface GestionarAbonos {
 		
 	}
 	
-	public static SocioAbonado setDatosSocioAbonado(Socio socioBasico, Abono abono) {
+	public static SocioAbonado setDatosSocioAbonado(Socio socioBasico, Abono abono) throws Exception {
 		
 		Email emailSocioComprador = new Email(socioBasico.getEmail());
 		String nombreSocioComprador = socioBasico.getNombre();
