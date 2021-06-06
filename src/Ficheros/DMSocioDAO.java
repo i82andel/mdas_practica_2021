@@ -68,14 +68,13 @@ public class DMSocioDAO  implements SocioDAO{
 
 	@Override
 	public Socio obtener(Email email) {
-		Socio socio = null;
-		for(int i = 0; i < socios.size(); i++) {
-			if(socios.get(i).getEmail() == email.getEmail()) {
-				socio = socios.get(i);
+		for(Socio SocioAuxiliar : socios) {
+			if(SocioAuxiliar.getEmail().equals(email.getEmail())) {
+				return SocioAuxiliar;
 			}
 		}
 		
-		return socio;
+		return null;
 	}
 
 	@Override
