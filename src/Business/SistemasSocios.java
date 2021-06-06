@@ -9,12 +9,12 @@ import Ficheros.DAOManager;
 
 public class SistemasSocios {
 
-	DAOManager gestor = new DAOManager();
+	//DAOManager gestor = new DAOManager();
 	
-	public void asociarseClub(Usuario usuarioInscrito) throws Exception {
+	public void asociarseClub(Usuario usuarioInscrito, DAOManager gestor) throws Exception {
 		
 		Socio nuevoSocio = setDatosSocio(usuarioInscrito);
-		if(!existeSocioSistema(nuevoSocio)) {
+		if(!existeSocioSistema(nuevoSocio, gestor)) {
 			
 			gestor.getSocios().insertar(nuevoSocio);
 			
@@ -38,7 +38,7 @@ public class SistemasSocios {
 		
 	}
 	
-	public boolean existeSocioSistema(Socio socio) {
+	public boolean existeSocioSistema(Socio socio, DAOManager gestor) {
 		
 		boolean encontrado = false;
 		String emailString = socio.getEmail();
@@ -54,24 +54,25 @@ public class SistemasSocios {
 		return encontrado;
 	}
 	
-	public void cancelarAsocio(Socio socioDeBaja) {
+	public void cancelarAsocio(Socio socioDeBaja, DAOManager gestor) {
 		
 		gestor.getSocios().eliminar(socioDeBaja);
 		
 	}
 	
-	public Socio getSocioInfo(Email emailSocio) throws Exception {
+	public Socio getSocioInfo(Email emailSocio, DAOManager gestor) throws Exception {
 		
 		Socio socioEncontrado = gestor.getSocios().obtener(emailSocio);
 		if(socioEncontrado == null) {
 			
-			throw new Exception();
+			//throw new Exception();
+			System.out.println("No encontrado");
 			
 		}
 		return socioEncontrado;
 	}
 
-	public SocioAbonado getSocioAbonadoInfo(Email emailSocio) throws Exception {
+	public SocioAbonado getSocioAbonadoInfo(Email emailSocio, DAOManager gestor) throws Exception {
 		
 		SocioAbonado socioEncontrado = gestor.getAbonados().obtener(emailSocio);
 		if(socioEncontrado == null) {
@@ -83,7 +84,7 @@ public class SistemasSocios {
 	}
 	
 	public void convocarJunta(SocioCompromisario socioConvocante, ArrayList<String> temasTratarJunta, 
-			LocalDate fechaJunta, LocalTime horaJunta) {
+			LocalDate fechaJunta, LocalTime horaJunta, DAOManager gestor) {
 		
 		Junta nuevaJunta = new Junta(socioConvocante, temasTratarJunta, fechaJunta, horaJunta);
 		gestor.getJuntas().insertar(nuevaJunta);
@@ -91,15 +92,15 @@ public class SistemasSocios {
 		
 	}
 	
-	public void crearCarnet(Socio socio) {
+	public void crearCarnet(Socio socio, DAOManager gestor) {
 		
-		String tipoCarnet = valorarTipoCarnet(socio);
+		String tipoCarnet = valorarTipoCarnet(socio, gestor);
 		CarnetSocio nuevoCarnet = new CarnetSocio(tipoCarnet);
 		socio.setCarnetSocio(nuevoCarnet);
 		
 	}
 	
-	public String valorarTipoCarnet(Socio socio) {
+	public String valorarTipoCarnet(Socio socio, DAOManager gestor) {
 		
 		int edadSocio = socio.getEdad();
 		int antiguedadSocio = socio.getAntiguedadSocio();
@@ -124,7 +125,7 @@ public class SistemasSocios {
 		
 	}
 	
-	public boolean validarAntiguedad(Socio socio) {
+	public boolean validarAntiguedad(Socio socio, DAOManager gestor) {
 		
 		int antiguedadRequerida = 25;
 		int antiguedadSocio = socio.getAntiguedadSocio();
@@ -136,7 +137,7 @@ public class SistemasSocios {
 		
 	}
 	
-	public void añadirSolicitud(Socio socioSolicitante, String razon) {
+	public void añadirSolicitud(Socio socioSolicitante, String razon, DAOManager gestor) {
 		
 		Solicitud nuevaSolicitud = new Solicitud( socioSolicitante,  razon);
 		gestor.getSolicitudes().insertar(nuevaSolicitud);

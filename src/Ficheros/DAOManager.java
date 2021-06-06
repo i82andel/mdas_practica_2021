@@ -3,8 +3,12 @@ package Ficheros;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import Data.Gestor;
+
 public class DAOManager {
 
+	private static DAOManager instance = null;
+	
 	private DMUsuarioDAO usuarios = null;
 	private DMSocioDAO socios = null;
 	private DMSocioAbonadoDAO abonados = null;
@@ -15,6 +19,15 @@ public class DAOManager {
 	private DMSolicitudDAO solicitudes = null;
 	
 	public DAOManager() {}
+	
+public static DAOManager getInstance() {
+		
+		if(instance == null) {
+			instance = new DAOManager();
+		}
+		
+		return instance;
+	}
 
 	public DMUsuarioDAO getUsuarios() {
 		if(usuarios == null){

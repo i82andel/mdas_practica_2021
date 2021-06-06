@@ -21,7 +21,7 @@ public class DMUsuarioDAO implements UsuarioDAO {
 	
 	public DMUsuarioDAO() {
 		
-		try {
+		/*try {
 			this.cargarFichero();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -32,7 +32,7 @@ public class DMUsuarioDAO implements UsuarioDAO {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 
 	}
 	

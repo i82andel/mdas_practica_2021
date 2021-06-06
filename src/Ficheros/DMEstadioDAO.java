@@ -18,7 +18,7 @@ public class DMEstadioDAO implements EstadioDAO{
 
 	public DMEstadioDAO() {
 		
-		/*try {
+		try {
 			this.cargarFichero();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -29,7 +29,7 @@ public class DMEstadioDAO implements EstadioDAO{
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		
 	}
 	

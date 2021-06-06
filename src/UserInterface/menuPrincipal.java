@@ -30,6 +30,16 @@ public class menuPrincipal {
 		int opcionMenuPrincipal, opcionMenuSocios = 0, localidad, estadio;
 		boolean salirMenu = false;
 		
+		DAOManager manager = DAOManager.getInstance();
+		manager.getUsuarios().cargarFichero();
+		manager.getSocios().cargarFichero();
+		manager.getAbonados().cargarFichero();
+		manager.getCompromisarios().cargarFichero();
+		manager.getEntradas().cargarFichero();
+		manager.getEstadios().cargarFichero();
+		manager.getJuntas().cargarFichero();
+		manager.getSolicitudes().cargarFichero();
+		
 		while(true) {
 			
 			salirMenu = false;
@@ -86,9 +96,10 @@ public class menuPrincipal {
 								
 								Email email = new Email(emailString);
 								
-								Usuario usuario = ComprarEntrada.setDatosUsuario(fechaNacimiento, nombre, email);
+								Usuario usuario = ComprarEntrada.setDatosUsuario(fechaNacimiento, nombre, email, manager);
 								
-								sistemaSocio.asociarseClub(usuario);
+								
+								sistemaSocio.asociarseClub(usuario, manager);
 								
 								
 								break;
@@ -96,22 +107,24 @@ public class menuPrincipal {
 							case 2:
 								System.out.println("================== CANCELAR SOCIO ===================");
 								
+								sn.nextLine();
 								System.out.println("Introduce email del socio que desea cancelar: ");
 								emailString = sn.nextLine();
 								email = new Email(emailString);
 								
-								Socio socio = sistemaSocio.getSocioInfo(email);
-								sistemaSocio.cancelarAsocio(socio);
+								Socio socio = sistemaSocio.getSocioInfo(email, manager);
+								sistemaSocio.cancelarAsocio(socio, manager);
 								
 								break;
 								
 							case 3:
 								System.out.println("================ OBTENER INFORMACION ================");
+								sn.nextLine();
 								System.out.println("Introduce email del socio que desea obtener informacion: ");
 								emailString = sn.nextLine();
 								email = new Email(emailString);
 								
-								Socio socioInfo = sistemaSocio.getSocioInfo(email);
+								Socio socioInfo = sistemaSocio.getSocioInfo(email, manager);
 								
 								System.out.println("Nombre: " + socioInfo.getNombre());
 								System.out.println("Email: " + socioInfo.getEmail());
@@ -125,15 +138,15 @@ public class menuPrincipal {
 								
 							case 4:
 								System.out.println("=================== RENOVAR ABONO ===================");
-								
+								sn.nextLine();
 								System.out.println("Introduce email del socio que desea renovar el abono: ");
 								emailString = sn.nextLine();
 								email = new Email(emailString);
 								
-								socioInfo = sistemaSocio.getSocioInfo(email);
+								socioInfo = sistemaSocio.getSocioInfo(email, manager);
 								
 								if(GestionarAbonos.comprobarSocioNoAbonado(socioInfo)) {
-									SocioAbonado socioAbonado = sistemaSocio.getSocioAbonadoInfo(email);
+									SocioAbonado socioAbonado = sistemaSocio.getSocioAbonadoInfo(email, manager);
 									socioAbonado.getAbono().renovarAbono();
 									
 								}
@@ -147,28 +160,29 @@ public class menuPrincipal {
 								
 							case 5:
 								System.out.println("==================== CREAR CARNET ===================");
-								
+								sn.nextLine();
 								System.out.println("Introduce email del socio que desea crear carnet: ");
 								emailString = sn.nextLine();
 								email = new Email(emailString);
 								
-								Socio socioCarnet = sistemaSocio.getSocioInfo(email);
-								sistemaSocio.crearCarnet(socioCarnet);
+								Socio socioCarnet = sistemaSocio.getSocioInfo(email, manager);
+								sistemaSocio.crearCarnet(socioCarnet, manager);
 								
 								break;
 								
 							case 6:
 								System.out.println("=========== SOLICITUD SOCIO COMPROMISARIO ===========");
+								sn.nextLine();
 								System.out.println("Introduce email del socio que desea realizar la solicitud: ");
 								emailString = sn.nextLine();
 								email = new Email(emailString);
 								
-								socioInfo = sistemaSocio.getSocioInfo(email);
+								socioInfo = sistemaSocio.getSocioInfo(email, manager);
 								
 								System.out.println("Introduce razón: ");
 								razon = sn.nextLine();
 								
-								sistemaSocio.añadirSolicitud(socioInfo, razon);
+								sistemaSocio.añadirSolicitud(socioInfo, razon, manager);
 								
 								
 								
@@ -212,19 +226,19 @@ public class menuPrincipal {
 						
 						Email email = new Email(emailString);
 						
-						Usuario usuario = ComprarEntrada.setDatosUsuario(fechaNacimiento, nombre, email);
+						Usuario usuario = ComprarEntrada.setDatosUsuario(fechaNacimiento, nombre, email, manager);
 						
 						System.out.println("Introduce fecha de evento (dd-MM-yyyy): ");
 						fechaEventoString = sn.nextLine();
 						
 						LocalDate fechaEvento = LocalDate.parse(fechaEventoString, formatter);
 						
-						DAOManager gestor = new DAOManager();
+						
 						
 						System.out.println("Introduce el id del estadio: ");
 						estadio = sn.nextInt();
 						
-						Estadio estadios = gestor.getEstadios().obtener(estadio);
+						Estadio estadios = manager.getEstadios().obtener(estadio);
 						
 						System.out.println("Introduce numero de localidad: ");
 						localidad = sn.nextInt();
@@ -240,7 +254,7 @@ public class menuPrincipal {
 							}
 						}
 						
-						ComprarEntrada.comprarEntrada(fechaEvento, usuario, localidadDeseada);
+						ComprarEntrada.comprarEntrada(fechaEvento, usuario, localidadDeseada, manager);
 						
 						
 						break;
@@ -252,8 +266,15 @@ public class menuPrincipal {
 					
 					case 4:
 						System.out.println("Fin del Menu");
-						DAOManager manager = new DAOManager();
-						manager.guardarFicheros();
+
+						manager.getUsuarios().guardarFichero();
+						manager.getSocios().guardarFichero();
+						manager.getAbonados().guardarFichero();
+						manager.getCompromisarios().guardarFichero();
+						manager.getEntradas().guardarFichero();
+						manager.getJuntas().guardarFichero();
+						manager.getSolicitudes().guardarFichero();
+						manager.getEstadios().guardarFichero();
 						
 						System.exit(0);
 						break;

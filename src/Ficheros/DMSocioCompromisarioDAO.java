@@ -19,7 +19,7 @@ public class DMSocioCompromisarioDAO implements SocioCompromisarioDAO{
 	
 	public DMSocioCompromisarioDAO() {
 		
-		/*try {
+		try {
 			this.cargarFichero();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -30,7 +30,7 @@ public class DMSocioCompromisarioDAO implements SocioCompromisarioDAO{
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		
 	}
 	

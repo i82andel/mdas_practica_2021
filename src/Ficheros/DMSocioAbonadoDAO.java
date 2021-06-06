@@ -19,7 +19,7 @@ public class DMSocioAbonadoDAO implements SocioAbonadoDAO{
 	
 	public DMSocioAbonadoDAO() {
 		
-		/*try {
+		try {
 			this.cargarFichero();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -30,7 +30,7 @@ public class DMSocioAbonadoDAO implements SocioAbonadoDAO{
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		
 	}
 	

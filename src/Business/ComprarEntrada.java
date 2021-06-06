@@ -7,11 +7,11 @@ import Business.*;
 
 public interface ComprarEntrada {
 
-	DAOManager gestor = new DAOManager();
+	//DAOManager gestor = new DAOManager();
 	
-	public static Usuario setDatosUsuario(LocalDate fechaNacimiento, String nombre, Email email) throws Exception {
+	public static Usuario setDatosUsuario(LocalDate fechaNacimiento, String nombre, Email email, DAOManager gestor) throws Exception {
 		Usuario usuarioNuevo = new Usuario(email, nombre, fechaNacimiento);
-		if(existeUsuarioSistema(usuarioNuevo)) {
+		if(existeUsuarioSistema(usuarioNuevo, gestor)) {
 			
 			throw new Exception();
 			
@@ -21,14 +21,14 @@ public interface ComprarEntrada {
 		}
 	}
 	
-	public static Usuario getDatosUsuario(Email email) throws Exception {
+	public static Usuario getDatosUsuario(Email email, DAOManager gestor) throws Exception {
 		Usuario usuarioEncontrado;
 		usuarioEncontrado = gestor.getUsuarios().obtener(email);
 		if(usuarioEncontrado == null) throw new Exception();
 		return usuarioEncontrado;
 	}
 	
-	public static boolean existeUsuarioSistema(Usuario usuario) {
+	public static boolean existeUsuarioSistema(Usuario usuario, DAOManager gestor) {
 		
 		boolean encontrado = false;
 		String emailString = usuario.getEmail();
@@ -44,7 +44,7 @@ public interface ComprarEntrada {
 		return encontrado;
 	}
 	
-	public static void comprarEntrada(LocalDate fechaEvento, Usuario usuarioComprador, Localidad localidadDeseada) throws Exception {
+	public static void comprarEntrada(LocalDate fechaEvento, Usuario usuarioComprador, Localidad localidadDeseada, DAOManager gestor) throws Exception {
 		
 		if(ObtenerLocalidadesDisponibles.ocuparLocalidad(localidadDeseada)) {
 			
