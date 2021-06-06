@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 
-public class Socio extends Usuario{
+public class Socio extends Usuario implements Serializable{
 
 	private CarnetSocio carnetSocio = null;
 	private LocalDate fechaInscripcion;

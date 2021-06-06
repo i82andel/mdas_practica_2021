@@ -1,6 +1,8 @@
 package Data;
 
-public class Solicitud {
+import java.io.Serializable;
+
+public class Solicitud implements Serializable{
 
 	private Socio socioSolicitante;
 	private String razon;

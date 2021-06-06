@@ -20,6 +20,9 @@ public class DMJuntaDAO implements JuntaDAO{
 
 	ArrayList<Junta> juntas = new ArrayList<Junta>();
 	
+	public DMJuntaDAO() {
+		
+	}
 	@Override
 	public void insertar(Junta j) {
 		juntas.add(j);
@@ -75,7 +78,7 @@ public class DMJuntaDAO implements JuntaDAO{
 	@Override
 	public void guardarFichero() throws FileNotFoundException, IOException {
 		
-		ObjectOutputStream escribirJuntas = new ObjectOutputStream(new FileOutputStream("src/Ficheros/SociosCompromisarios.txt"));
+		ObjectOutputStream escribirJuntas = new ObjectOutputStream(new FileOutputStream("src/Ficheros/Juntas.txt"));
 		escribirJuntas.writeObject(juntas);
 		escribirJuntas.close();
 		

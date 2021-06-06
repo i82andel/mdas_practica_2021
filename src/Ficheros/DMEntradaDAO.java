@@ -20,7 +20,7 @@ public class DMEntradaDAO implements EntradaDAO{
 
 	public DMEntradaDAO() {
 		
-		try {
+		/*try {
 			this.cargarFichero();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -31,7 +31,7 @@ public class DMEntradaDAO implements EntradaDAO{
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
 	}
 

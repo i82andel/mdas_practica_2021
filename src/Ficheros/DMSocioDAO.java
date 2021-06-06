@@ -20,7 +20,7 @@ public class DMSocioDAO  implements SocioDAO{
 	
 	public DMSocioDAO() {
 		
-		try {
+		/*try {
 			this.cargarFichero();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -31,7 +31,7 @@ public class DMSocioDAO  implements SocioDAO{
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
 	}
 	

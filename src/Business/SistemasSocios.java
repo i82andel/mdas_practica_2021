@@ -71,7 +71,7 @@ public class SistemasSocios {
 		return socioEncontrado;
 	}
 
-	public Socio getSocioAbonadoInfo(Email emailSocio) throws Exception {
+	public SocioAbonado getSocioAbonadoInfo(Email emailSocio) throws Exception {
 		
 		SocioAbonado socioEncontrado = gestor.getAbonados().obtener(emailSocio);
 		if(socioEncontrado == null) {
