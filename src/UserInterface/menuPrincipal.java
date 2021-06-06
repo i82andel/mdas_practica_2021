@@ -6,6 +6,7 @@ import Business.ComprarEntrada;
 import Business.GestionarAbonos;
 import Business.ObtenerLocalidadesDisponibles;
 import Business.SistemasSocios;
+import Data.Abono;
 import Data.Email;
 import Data.Estadio;
 import Data.Localidad;
@@ -31,9 +32,10 @@ public class menuPrincipal {
 		SocioAbonado socioAbonado = null;
 		Estadio estadio = null;
 		Localidad localidad = null;
+		Abono abono = null;
 		Email emailAux = null;
 		
-		String emailString, nombreAux, fechaNacimientoString, razonAux, fechaEventoString;
+		String emailString, nombreAux, fechaNacimientoString, razonAux, fechaEventoString, tipoAbonoAux;
 		
 		ArrayList<Localidad> localidadesDisponibles = null;
 		
@@ -48,12 +50,12 @@ public class menuPrincipal {
 		DAOManager manager = DAOManager.getInstance();
 		manager.getUsuarios().cargarFichero();
 		manager.getSocios().cargarFichero();
-		//manager.getAbonados().cargarFichero();
-		//manager.getCompromisarios().cargarFichero();
-		//manager.getEntradas().cargarFichero();
-		//manager.getEstadios().cargarFichero();
-		//manager.getJuntas().cargarFichero();
-		//manager.getSolicitudes().cargarFichero();
+		manager.getAbonados().cargarFichero();
+		manager.getCompromisarios().cargarFichero();
+		manager.getEntradas().cargarFichero();
+		manager.getEstadios().cargarFichero();
+		manager.getJuntas().cargarFichero();
+		manager.getSolicitudes().cargarFichero();
 		
 		
 		ArrayList <Usuario> usuarios = (ArrayList<Usuario>) manager.getUsuarios().obtenerTodos();
@@ -94,11 +96,12 @@ public class menuPrincipal {
 							System.out.println("  1. Crear socio.");
 							System.out.println("  2. Cancelar socio.");
 							System.out.println("  3. Obtener información de socio.");
-							System.out.println("  4. Renovar abono.");
-							System.out.println("  5. Crear carnet de socio.");
-							System.out.println("  6. Solicitud socio compromisario.");
+							System.out.println("  4. Hacerse socio abonado.");
+							System.out.println("  5. Renovar abono.");
+							System.out.println("  6. Crear carnet de socio.");
+							System.out.println("  7. Solicitud socio compromisario.");
 							System.out.println("____________________________________________________");
-							System.out.println("  7. Salir.");
+							System.out.println("  8. Salir.");
 							System.out.println("====================================================");
 							try {
 								opcionMenuSocios = sn.nextInt();
@@ -163,8 +166,43 @@ public class menuPrincipal {
 								
 								
 								break;
-								
+						
 							case 4:
+								System.out.println("================== HACERSE ABONADO ==================");
+								sn.nextLine();
+								System.out.println("Introduce email del socio que desee hacerse abonado: ");
+								emailString = sn.nextLine();
+								emailAux = new Email(emailString);
+								
+								System.out.println("Introduce el tipo de abono: (COMPLETO / LIGA)");
+								tipoAbonoAux = sn.nextLine();
+								
+								System.out.println("Introduce el id del estadio: ");
+								IDestadioAux = sn.nextInt();
+								
+								estadio = manager.getEstadios().obtener(IDestadioAux);
+								
+								System.out.println("Introduce numero de localidad: ");
+								localidadAux = sn.nextInt();
+								
+								localidadesDisponibles = ObtenerLocalidadesDisponibles.getLocalidadesDisponibles(estadio);
+								
+								
+								for(int i = 0; i< localidadesDisponibles.size(); i++) {
+									if(localidadesDisponibles.get(i).getNumero() == localidadAux) {
+										ObtenerLocalidadesDisponibles.ocuparLocalidad(localidadesDisponibles.get(i));
+										localidad = localidadesDisponibles.get(i);
+									}
+								}
+								
+								socio = sistemaSocio.getSocioInfo(emailAux);
+								abono = new Abono(localidad, tipoAbonoAux);
+								
+								GestionarAbonos.setDatosSocioAbonado(socio, abono);
+								
+								break;
+								
+							case 5:
 								System.out.println("=================== RENOVAR ABONO ===================");
 								sn.nextLine();
 								System.out.println("Introduce email del socio que desea renovar el abono: ");
@@ -186,7 +224,7 @@ public class menuPrincipal {
 								break;
 								
 								
-							case 5:
+							case 6:
 								System.out.println("==================== CREAR CARNET ===================");
 								sn.nextLine();
 								System.out.println("Introduce email del socio que desea crear carnet: ");
@@ -198,7 +236,7 @@ public class menuPrincipal {
 								
 								break;
 								
-							case 6:
+							case 7:
 								System.out.println("=========== SOLICITUD SOCIO COMPROMISARIO ===========");
 								sn.nextLine();
 								System.out.println("Introduce email del socio que desea realizar la solicitud: ");
@@ -216,13 +254,13 @@ public class menuPrincipal {
 								
 								break;
 								
-							case 7:
+							case 8:
 								salirMenu = true;
 								
 								break;
 								
 							default:
-								System.out.println("La opcion seleccionada no existe. Debe ser entre 1 y 7.");
+								System.out.println("La opcion seleccionada no existe. Debe ser entre 1 y 8.");
 							
 							}
 						
@@ -271,7 +309,6 @@ public class menuPrincipal {
 						
 						localidadesDisponibles = ObtenerLocalidadesDisponibles.getLocalidadesDisponibles(estadio);
 						
-						localidad = new Localidad(0, "", 0, true);
 						
 						for(int i = 0; i< localidadesDisponibles.size(); i++) {
 							if(localidadesDisponibles.get(i).getNumero() == localidadAux) {
@@ -292,8 +329,16 @@ public class menuPrincipal {
 					
 					case 4:
 						System.out.println("Fin del Menu");
-
 						manager.guardarFicheros();
+						manager.getUsuarios().guardarFichero();
+						manager.getSocios().guardarFichero();
+						manager.getAbonados().guardarFichero();
+						manager.getCompromisarios().guardarFichero();
+						manager.getEntradas().guardarFichero();
+						manager.getJuntas().guardarFichero();
+						manager.getSolicitudes().guardarFichero();
+						manager.getEstadios().guardarFichero();
+
 						
 						System.exit(0);
 						break;
