@@ -67,9 +67,9 @@ public class DMSocioAbonadoDAO implements SocioAbonadoDAO{
 	@Override
 	public SocioAbonado obtener(Email email) {
 		
-		for(int i = 0; i < abonados.size(); i++) {
-			if(abonados.get(i).getEmail() == email.getEmail()) {
-				return abonados.get(i);
+		for(SocioAbonado SocioAuxiliar : abonados) {
+			if(SocioAuxiliar.getEmail().equals(email.getEmail())) {
+				return SocioAuxiliar;
 			}
 		}
 		

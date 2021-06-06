@@ -67,9 +67,9 @@ public class DMSocioCompromisarioDAO implements SocioCompromisarioDAO{
 	@Override
 	public SocioCompromisario obtener(Email email) {
 		
-		for(int i = 0; i < compromisarios.size(); i++) {
-			if(compromisarios.get(i).getEmail() == email.getEmail()) {
-				return compromisarios.get(i);
+		for(SocioCompromisario SocioAuxiliar : compromisarios) {
+			if(SocioAuxiliar.getEmail().equals(email.getEmail())) {
+				return SocioAuxiliar;
 			}
 		}
 		

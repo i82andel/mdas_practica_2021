@@ -57,9 +57,9 @@ public class DMJuntaDAO implements JuntaDAO{
 	@Override
 	public Junta obtener(LocalDate fecha, LocalTime hora) {
 		
-		for(int i = 0; i < juntas.size(); i++) {
-			if(juntas.get(i).getFechaJunta()== fecha && juntas.get(i).getHoraJunta() == hora) {
-				return juntas.get(i);
+		for(Junta JuntaAuxiliar : juntas) {
+			if(JuntaAuxiliar.getFechaJunta()== fecha && JuntaAuxiliar.getHoraJunta() == hora) {
+				return JuntaAuxiliar;
 			}
 		}
 		

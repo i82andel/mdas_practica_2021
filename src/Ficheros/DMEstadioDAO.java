@@ -70,10 +70,10 @@ public class DMEstadioDAO implements EstadioDAO{
 
 	@Override
 	public Estadio obtener(Integer id) {
-		// TODO Auto-generated method stub
-		for(int i = 0; i < estadios.size(); i++) {
-			if(estadios.get(i).getIdEstadio() == id) {
-				return estadios.get(i);
+
+		for(Estadio EstadioAuxiliar : estadios) {
+			if(EstadioAuxiliar.getIdEstadio() == id) {
+				return EstadioAuxiliar;
 			}
 		}
 		

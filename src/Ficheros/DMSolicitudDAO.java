@@ -51,9 +51,9 @@ public class DMSolicitudDAO implements SolicitudDAO{
 	@Override
 	public Solicitud obtener(Socio socio) {
 		// TODO Auto-generated method stub
-		for(int i = 0; i < solicitudes.size(); i++) {
-			if(solicitudes.get(i).getSocioSolicitante() == socio) {
-				return solicitudes.get(i);
+		for(Solicitud SolicitudAuxiliar : solicitudes) {
+			if(SolicitudAuxiliar.getSocioSolicitante() == socio) {
+				return SolicitudAuxiliar;
 			}
 		}
 		
