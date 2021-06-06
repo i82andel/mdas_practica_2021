@@ -44,11 +44,10 @@ public class MenuSecundario {
 		
 		Email email = new Email(emailString);
 		
-		Usuario usuario = ComprarEntrada.setDatosUsuario(fechaNacimiento, nombre, email);
 		
-
-		
-		sistemaSocio.asociarseClub(usuario);
+		Usuario usuario = new Usuario(email, fechaNacimientoString, fechaNacimiento);
+		gestor.getUsuarios().insertar(usuario);
+		gestor.getUsuarios().guardarFichero();
 		
 		
 		
@@ -86,7 +85,7 @@ public class MenuSecundario {
 		//gestor.getCompromisarios().guardarFichero();
 		
 		Solicitud solicitud = new Solicitud(socio, "12-12-2000");
-		gestor.getSolicitudes().insertar(solicitud);
-		gestor.getSolicitudes().guardarFichero();
+		//gestor.getSolicitudes().insertar(solicitud);
+		//gestor.getSolicitudes().guardarFichero();
 	}
 }

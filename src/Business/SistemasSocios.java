@@ -9,12 +9,12 @@ import Ficheros.DAOManager;
 
 public class SistemasSocios {
 
-	//DAOManager gestor = new DAOManager();
+	DAOManager gestor = DAOManager.getInstance();
 	
-	public void asociarseClub(Usuario usuarioInscrito, DAOManager gestor) throws Exception {
+	public void asociarseClub(Usuario usuarioInscrito) throws Exception {
 		
 		Socio nuevoSocio = setDatosSocio(usuarioInscrito);
-		if(!existeSocioSistema(nuevoSocio, gestor)) {
+		if(!existeSocioSistema(nuevoSocio)) {
 			
 			gestor.getSocios().insertar(nuevoSocio);
 			
@@ -38,7 +38,7 @@ public class SistemasSocios {
 		
 	}
 	
-	public boolean existeSocioSistema(Socio socio, DAOManager gestor) throws Exception {
+	public boolean existeSocioSistema(Socio socio) throws Exception {
 		
 		boolean encontrado = false;
 		String emailString = socio.getEmail();
@@ -54,13 +54,13 @@ public class SistemasSocios {
 		return encontrado;
 	}
 	
-	public void cancelarAsocio(Socio socioDeBaja, DAOManager gestor) {
+	public void cancelarAsocio(Socio socioDeBaja) {
 		
 		gestor.getSocios().eliminar(socioDeBaja);
 		
 	}
 	
-	public Socio getSocioInfo(Email emailSocio, DAOManager gestor) throws Exception {
+	public Socio getSocioInfo(Email emailSocio) throws Exception {
 		
 		Socio socioEncontrado = gestor.getSocios().obtener(emailSocio);
 		if(socioEncontrado == null) {
@@ -72,7 +72,7 @@ public class SistemasSocios {
 		return socioEncontrado;
 	}
 
-	public SocioAbonado getSocioAbonadoInfo(Email emailSocio, DAOManager gestor) throws Exception {
+	public SocioAbonado getSocioAbonadoInfo(Email emailSocio) throws Exception {
 		
 		SocioAbonado socioEncontrado = gestor.getAbonados().obtener(emailSocio);
 		if(socioEncontrado == null) {
@@ -92,15 +92,15 @@ public class SistemasSocios {
 		
 	}
 	
-	public void crearCarnet(Socio socio, DAOManager gestor) {
+	public void crearCarnet(Socio socio) {
 		
-		String tipoCarnet = valorarTipoCarnet(socio, gestor);
+		String tipoCarnet = valorarTipoCarnet(socio);
 		CarnetSocio nuevoCarnet = new CarnetSocio(tipoCarnet);
 		socio.setCarnetSocio(nuevoCarnet);
 		
 	}
 	
-	public String valorarTipoCarnet(Socio socio, DAOManager gestor) {
+	public String valorarTipoCarnet(Socio socio) {
 		
 		int edadSocio = socio.getEdad();
 		int antiguedadSocio = socio.getAntiguedadSocio();
@@ -125,7 +125,7 @@ public class SistemasSocios {
 		
 	}
 	
-	public boolean validarAntiguedad(Socio socio, DAOManager gestor) {
+	public boolean validarAntiguedad(Socio socio) {
 		
 		int antiguedadRequerida = 25;
 		int antiguedadSocio = socio.getAntiguedadSocio();
@@ -137,7 +137,7 @@ public class SistemasSocios {
 		
 	}
 	
-	public void añadirSolicitud(Socio socioSolicitante, String razon, DAOManager gestor) {
+	public void añadirSolicitud(Socio socioSolicitante, String razon) {
 		
 		Solicitud nuevaSolicitud = new Solicitud( socioSolicitante,  razon);
 		gestor.getSolicitudes().insertar(nuevaSolicitud);
