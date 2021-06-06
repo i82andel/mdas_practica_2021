@@ -173,7 +173,7 @@ public class menuPrincipal {
 								
 								socio = sistemaSocio.getSocioInfo(emailAux);
 								
-								if(GestionarAbonos.comprobarSocioNoAbonado(socio)) {
+								if(GestionarAbonos.comprobarSocioEstaAbonado(socio)) {
 									socioAbonado = sistemaSocio.getSocioAbonadoInfo(emailAux);
 									socioAbonado.getAbono().renovarAbono();
 									
@@ -293,14 +293,7 @@ public class menuPrincipal {
 					case 4:
 						System.out.println("Fin del Menu");
 
-						manager.getUsuarios().guardarFichero();
-						manager.getSocios().guardarFichero();
-						//manager.getAbonados().guardarFichero();
-						//manager.getCompromisarios().guardarFichero();
-						//manager.getEntradas().guardarFichero();
-						//manager.getJuntas().guardarFichero();
-						//manager.getSolicitudes().guardarFichero();
-						//manager.getEstadios().guardarFichero();
+						manager.guardarFicheros();
 						
 						System.exit(0);
 						break;

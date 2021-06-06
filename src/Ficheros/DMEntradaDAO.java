@@ -15,8 +15,6 @@ import Data.Localidad;
 public class DMEntradaDAO implements EntradaDAO{
 
 	ArrayList<Entrada> entradas = new ArrayList<Entrada>();
-	
-	
 
 	public DMEntradaDAO() {
 		
@@ -81,7 +79,6 @@ public class DMEntradaDAO implements EntradaDAO{
 		
 		return null;
 	}
-
 
 	@Override
 	public void cargarFichero() throws FileNotFoundException, IOException, ClassNotFoundException {

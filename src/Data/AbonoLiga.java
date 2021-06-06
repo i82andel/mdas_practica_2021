@@ -17,5 +17,14 @@ public class AbonoLiga extends Abono{
 		float precioFinal = precioBase + TARIFA_LIGA;
 		return precioFinal;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Abono [localidad=" + super.getLocalidad() + ", fechaCaducidad=" + super.getFechaCaducidad() 
+		+ ", deporte=" + super.getDeporte() + ", tipo=" + "Liga" + ", precio=" + this.getPrecio() +"]" ;
+	}
+	
+	
 	
 }

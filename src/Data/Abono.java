@@ -10,9 +10,6 @@ public class Abono implements Serializable{
 	private LocalDate fechaCaducidad;
 	private String deporte;
 	
-	private static float TARIFA_COMPLETO = (float)15.00;
-	private static float TARIFA_LIGA = (float)45.00;
-	
 	
 	public Abono(Localidad localidad, String deporte) {
 		this.localidad = localidad;
@@ -47,9 +44,28 @@ public class Abono implements Serializable{
 		}
 	}
 	
+	public String getDeporte() {
+		return deporte;
+	}
+
+	public void setDeporte(String deporte) {
+		this.deporte = deporte;
+	}
+
+	public void setFechaCaducidad(LocalDate fechaCaducidad) {
+		this.fechaCaducidad = fechaCaducidad;
+	}
+
 	public float getPrecio() {
 		float precio = (float) 30.00;
 		return precio;
 	}
+
+	@Override
+	public String toString() {
+		return "Abono [localidad=" + localidad + ", fechaCaducidad=" + fechaCaducidad + ", deporte=" + deporte + ", tipo=" + "Estandar" + ", precio=" + this.getPrecio() +"]" ;
+	}
+	
+	
 }
 

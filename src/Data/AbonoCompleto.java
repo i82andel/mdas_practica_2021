@@ -19,6 +19,14 @@ public class AbonoCompleto extends Abono{
 		return precioFinal;
 	}
 
+	@Override
+	public String toString() {
+	
+		return "Abono [localidad=" + super.getLocalidad() + ", fechaCaducidad=" + super.getFechaCaducidad() 
+		+ ", deporte=" + super.getDeporte() + ", tipo=" + "Completo" + ", precio=" + this.getPrecio() +"]" ;
+	
+	}
 
+	
 	
 }
