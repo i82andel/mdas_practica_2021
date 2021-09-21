@@ -24,7 +24,6 @@ public interface ObtenerLocalidadesDisponibles {
 		boolean proceso = false;
 		
 		if(localidadDeseada.isOcupada()) {
-			
 			localidadDeseada.setOcupada(true);
 			proceso = true;
 		}

@@ -37,9 +37,11 @@ public class Estadio implements Serializable{
 	public void setAforo(int aforo) {
 		this.aforo = aforo;
 	}
+	
 	public ArrayList<Localidad> getLocalidadesEstadio() {
 		return localidadesEstadio;
 	}
+	
 	public void setLocalidadesEstadio(ArrayList<Localidad> localidadesEstadio) {
 		this.localidadesEstadio = localidadesEstadio;
 	}
